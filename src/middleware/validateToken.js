@@ -10,7 +10,7 @@ const validateToken = (req, res, next) => {
     req.data = payload.data;
     next();
   } catch (error) {
-    res.status(500).json({ message: 'Invalid token' });
+    res.status(401).json({ message: 'Invalid token' });
   }
 };
 
