@@ -1,4 +1,4 @@
-module.exports = (req, res, next) => {
+const validateDName = (req, res, next) => {
   const { displayName } = req.body;
 
   if (displayName.length <= 7) {
@@ -7,3 +7,5 @@ module.exports = (req, res, next) => {
   }
   next();
 };
+
+module.exports = validateDName;
