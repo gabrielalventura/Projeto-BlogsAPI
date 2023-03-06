@@ -1,6 +1,5 @@
 const express = require('express');
 const { userController } = require('../controllers');
-const { getUsers } = require('../controllers/userController');
 const validateDisplayName = require('../middleware/validateDisplayName');
 const validateEmail = require('../middleware/validateEmail');
 const validatePassword = require('../middleware/validatePassword');
@@ -10,6 +9,6 @@ const router = express.Router();
 
 router.post('/', validateDisplayName, validateEmail, validatePassword, userController.createUser);
 
-router.get('/', validateToken, getUsers);
+router.get('/', validateToken, userController.getUsers);
 
 module.exports = router;

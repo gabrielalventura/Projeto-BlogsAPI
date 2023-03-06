@@ -5,7 +5,7 @@ const validateEmail = async (req, res, next) => {
   const rightEmail = /[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}/i;
   // Regex retirado de: https://www.regular-expressions.info/email.html
 
-  const usedEmail = await loginService.verifyLogin(email, password);
+  const usedEmail = await loginService.verifyLogin({ email, password });
 
   if (usedEmail) {
     return res.status(409).json({ message: 'User already registered' });
