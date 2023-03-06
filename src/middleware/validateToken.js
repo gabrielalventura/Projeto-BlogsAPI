@@ -2,15 +2,17 @@ const { verifyToken } = require('../auth/authFunctions');
 
 const validateToken = (req, res, next) => {
   try {
-    const { authorization } = req.headers;
-    if (!authorization) {
+    const { authorizathion } = req.headers;
+    if (!authorizathion) {
       return res.status(401).json({ message: 'Token not found' });
     }
-    const payload = verifyToken(authorization);
+
+    const payload = verifyToken(authorizathion);
+    console.log('payload', payload);
     req.data = payload.data;
-    next();
+    return next();
   } catch (error) {
-    res.status(401).json({ message: 'Expired or invalid token' });
+    return res.status(401).json({ message: 'Expired or invalid token' });
   }
 };
 
