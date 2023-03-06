@@ -8,8 +8,9 @@ const JWT_CONFIG = {
 };
 
 const createToken = (email) => jwt.sign({ email }, secret, JWT_CONFIG);
-
+// console.log('verificando token', createToken('teste@teste.com'));
 const verifyToken = (token) => jwt.verify(token, secret);
+// console.log('verificando token', verifyToken('eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6InRlc3RlQHRlc3RlLmNvbSIsImlhdCI6MTY3ODA5OTcwNywiZXhwIjoxNjc4MTAxNTA3fQ.ocnTMDEPQ0H_hwjaefq9cd5nA9KlmCA6598p9NiA_3U', secret));
 
 module.exports = {
   createToken,

@@ -1,7 +1,7 @@
-const loginService = require('./loginService');
 const userService = require('./userService');
+const loginService = require('./loginService');
 
 module.exports = {
-  loginService,
   userService,
+  loginService,
 };
