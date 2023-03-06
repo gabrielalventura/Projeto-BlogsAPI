@@ -2,12 +2,13 @@ const { verifyToken } = require('../auth/authFunctions');
 
 const validateToken = (req, res, next) => {
   try {
-    const { authorizathion } = req.headers;
-    if (!authorizathion) {
+    const { authorization } = req.headers;
+    console.log('auth', authorization);
+    if (!authorization) {
       return res.status(401).json({ message: 'Token not found' });
     }
 
-    const payload = verifyToken(authorizathion);
+    const payload = verifyToken(authorization);
     console.log('payload', payload);
     req.data = payload.data;
     return next();
