@@ -20,10 +20,10 @@ module.exports = async (req, res) => {
     }
 
     const { password: _, ...userWithoutPassword } = user;
-    console.log('user after if', user);
+    // console.log('user after if', user);
 
     const token = createToken(userWithoutPassword);
-    console.log('token', token);
+    // console.log('token', token);
 
     return res.status(200).json({ token });
   } catch (error) {
