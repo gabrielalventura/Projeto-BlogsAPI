@@ -18,7 +18,22 @@ const getById = async (req, res) => {
   }
 };
 
+const update = async (req, res) => {
+  try {
+    const { id } = req.params;
+    const post = req.body;
+    const updated = await postService.updateById(id, post);
+    if (!post) {
+      return res.status(400).json({ message: 'Some required fields are missing' });
+  }
+    return res.status(200).json(updated);
+  } catch (error) {
+    return res.status(401).json({ message: 'Unauthorized user' });
+  }
+};
+
 module.exports = {
   getPosts,
   getById,
+  update,
 };
